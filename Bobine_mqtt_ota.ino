@@ -27,9 +27,7 @@ float col[3];
 float hue = 0.0;
 
 WebServer server(80);
-/*
- * aggiunte
- */
+
 WiFiClient espClient;
 PubSubClient client(espClient);
 
@@ -37,10 +35,6 @@ long lastMsg = 0;
 char msg[50];
 int value = 0;
 
-
-/*
- * setup function
- */
 void setup(void) {
   Serial.begin(115200);
 
@@ -185,7 +179,6 @@ bool tag_read(){
   if (nfc.tagPresent()){
     Serial.println("Reading NFC tag\n");
     NfcTag tag = nfc.read();
-    //tag.print();
     Serial.println(tag.getTagType());
     Serial.print("UID: ");Serial.println(tag.getUidString());
     if (tag.hasNdefMessage()) // every tag won't have a message
