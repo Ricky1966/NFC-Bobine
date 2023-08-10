@@ -4,9 +4,9 @@
 #define _SECTRETS_H
 
 const char* host = "esp32";
-const char* ssid = "Linkem2.4GHz_49C4AF";
-const char* password = "zeh7f+h+";
-const char* mqtt_server = "192.168.1.101";
+const char* ssid = "your ssid";
+const char* password = "your pwd";
+const char* mqtt_server = "broker address";
 
 
 #endif
