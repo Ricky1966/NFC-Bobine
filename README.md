@@ -15,5 +15,6 @@ At this moment I've write some code for new Arduino Nano Esp32. It's provide a W
 Arduino, after eatablished cnnection with Mosquitto, an MQTT broker easy to install on Klipper side, publish and subscribe a topic to "speak" with Klipper.
 
 TODO 
+
 The most important part of this project is to parsing infos about the object to print like the amount of filament used, the temperatures (extruding and bed), type of material, and so on.
- 
+Those data are storing on a json file of Moonraker or in some points of Gcode. 
