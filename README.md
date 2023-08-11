@@ -19,3 +19,5 @@ TODO
 The most important part of this project is to parsing infos about the object to print like the amount of filament used, the temperatures (extruding and bed), type of material, and so on.
 Those data are storing on a json file of Moonraker or in some points of Gcode. 
 I've writed some Python lines, and now I'm able to find oit the infos I need, on GCode produced with Slic3r and some of it's forks.
+Next step will be to use the json of Moonraker, but at a first aigth on it, seems there aren't all the infos.
+
