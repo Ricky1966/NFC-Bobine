@@ -161,7 +161,7 @@ void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
     // Attempt to connect
-    if (client.connect("ESP8266Client")) {
+    if (client.connect("ESP8266Client", mqtt_user, mqtt_passwd)) {
       Serial.println("connected");
       // Subscribe
       client.subscribe("rfid");
