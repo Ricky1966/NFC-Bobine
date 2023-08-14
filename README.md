@@ -21,3 +21,8 @@ Those data are storing on a json file of Moonraker or in some points of Gcode.
 I've writed some Python lines, and now I'm able to find oit the infos I need, on GCode produced with Slic3r and some of it's forks.
 Next step will be to use the json of Moonraker, but at a first aigth on it, seems there aren't all the infos.
 After I will dedicate myself to merge all parts together.
+
+NOTE :
+edit file NdefMessage_h
+line #define MAX_NDEF_RECORDS 4
+must be change to 8
