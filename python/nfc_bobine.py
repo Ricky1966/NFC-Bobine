@@ -206,11 +206,11 @@ class NFC_Bobine(QMainWindow):
     def open_preview(self):
         print("QMessage")
         dialog = QDialog()#(parent=NFC_Bobine, text="Hello World")
-        dialog.setGeometry(QRect(10,10,300,300))
+        dialog.setGeometry(QRect(100,100,400,300))
 
         dialog.setWindowTitle("Message Dialog")
         label = QLabel(dialog)
-        pixmap = QPixmap('image.png')
+        pixmap = QPixmap('preview.png')
         label.setPixmap(pixmap)
         
         dialog.exec() 
@@ -236,6 +236,7 @@ class NFC_Bobine(QMainWindow):
         print(ista)
         self.slicer_label.setText("Slicer :" + slicer)
         nfc_bobine_lib.thumbarnail_large(file_choiced)
+        self.preview_button.setEnabled(True)
         print("Sono tornato")
 
 
