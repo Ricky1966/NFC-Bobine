@@ -107,7 +107,7 @@ def thumbernail_small(lines):
     return
 
 def thumbarnail_large(file_choiced):
-
+    print(file_choiced)
     file_choiced1 = open(file_choiced, "r")
     lines = file_choiced1.readlines()
     x = len(lines)
@@ -115,34 +115,31 @@ def thumbarnail_large(file_choiced):
     read_line = False
     img_file_choiced = open('temp1.txt', 'w')
     count = 0
+    '''
     while True :
         if count >= x :
             break
-        #print(lines[count])
-        if (lines[count].find("thumbnail begin 400x300")>0 and read_line == False) : # 21284 is numbers of chars per image 400x300
+    '''
+    for line in lines :
+        if (line.find("begin 400x300")>0 ) : # 21284 is numbers of chars per image 400x300 and read_line == False
             print("thumbnail begin 400x300 21284")
-            print(lines[count])
+            print(line)
             read_line = True
-            print(read_line)
-            count += 1
-            continue
-        elif (lines[count].find("thumbnail end")>0 and read_line == True) :
+        elif (line.find("thumbnail e")>0 and read_line == True) : # and read_line == True
             print("thumbnail end")
-            print(lines[count])
-            count += 1
+            print(line)
             read_line = False
+            img_file_choiced.close()
             break
-        elif (read_line == True):
-            dec_tmp = lines[count].replace("; ", "")
-            #dec = decoded_data=base64.b64decode(dec_tmp))
-            print(type(dec_tmp))
-            count += 1
-            img_file_choiced.write(dec_tmp)
-        count += 1
+        else :
+            if read_line == True :
+                dec_tmp = line.replace("; ", "")
+                #dec = decoded_data=base64.b64decode(dec_tmp))
+                img_file_choiced.write(dec_tmp)
+                print(dec_tmp)
     img_file_choiced.close()
     file = open('temp.txt', 'rb')
-    encoded_data = file.read()
-    print(encoded_data)
+    encoded_data = file.read() #print(encoded_data)
     file.close()
     #decode base64 string data
     decoded_data=base64.b64decode((encoded_data))
