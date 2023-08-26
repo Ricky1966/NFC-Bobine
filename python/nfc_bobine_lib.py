@@ -1,5 +1,6 @@
 import re
 import base64
+import os
 
 def which_slicer(lines):
     slicer = ''
@@ -76,8 +77,42 @@ def extracting_data(lines):
             data['first_layer_temperature'] = info
     return data
 
-def thumbernail_small(lines):
-
+def thumbarnail_small(file_choiced):
+    print(file_choiced)
+    file_choiced1 = open(file_choiced, "r")
+    lines = file_choiced1.readlines()
+    x = len(lines)
+    print("thumbarnail function")
+    read_line = False
+    img_file_choiced = open('temp1.txt', 'w')
+    count = 0
+    for line in lines :
+        if (line.find("begin 32x32")>0 ) : # 1108 is numbers of chars per image 400x300 
+            print("thumbnail begin 32x32 1108")
+            print(line)
+            read_line = True
+        elif (line.find("thumbnail e")>0 and read_line == True) : 
+            print("thumbnail end")
+            print(line)
+            read_line = False
+            img_file_choiced.close()
+            break
+        else :
+            if read_line == True :
+                dec_tmp = line.replace("; ", "")
+                img_file_choiced.write(dec_tmp)
+                print(dec_tmp)
+    img_file_choiced.close()
+    file = open('temp1.txt', 'rb')
+    encoded_data = file.read()
+    file.close()
+    #decode base64 string data
+    decoded_data=base64.b64decode((encoded_data))
+    img_file = open('small_preview.png', 'wb')
+    img_file.write(decoded_data)
+    img_file.close()
+    os.remove('temp1.txt')
+    return
     return
 
 def thumbarnail_large(file_choiced):
@@ -95,11 +130,11 @@ def thumbarnail_large(file_choiced):
             break
     '''
     for line in lines :
-        if (line.find("begin 400x300")>0 ) : # 21284 is numbers of chars per image 400x300 and read_line == False
+        if (line.find("begin 400x300")>0 ) : # 21284 is numbers of chars per image 400x300 
             print("thumbnail begin 400x300 21284")
             print(line)
             read_line = True
-        elif (line.find("thumbnail e")>0 and read_line == True) : # and read_line == True
+        elif (line.find("thumbnail e")>0 and read_line == True) : 
             print("thumbnail end")
             print(line)
             read_line = False
@@ -108,19 +143,18 @@ def thumbarnail_large(file_choiced):
         else :
             if read_line == True :
                 dec_tmp = line.replace("; ", "")
-                #dec = decoded_data=base64.b64decode(dec_tmp))
                 img_file_choiced.write(dec_tmp)
                 print(dec_tmp)
     img_file_choiced.close()
     file = open('temp.txt', 'rb')
-    encoded_data = file.read() #print(encoded_data)
+    encoded_data = file.read()
     file.close()
     #decode base64 string data
     decoded_data=base64.b64decode((encoded_data))
-    #write the decoded data back to original format in  file
     img_file = open('preview.png', 'wb')
     img_file.write(decoded_data)
     img_file.close()
+    os.remove("temp.txt")
     return
 
 def uid_bobine():

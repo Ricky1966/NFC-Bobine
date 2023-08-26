@@ -49,7 +49,7 @@ class NFC_Bobine(QMainWindow):
         self.pixmap_connection = getattr(QStyle.StandardPixmap, 'SP_DesktopIcon')
         self.icon_connection = self.style().standardIcon(self.pixmap_connection)
         self.mqtt_connection.setCheckable(True)
-        self.mqtt_connection.clicked.connect(self.the_button_was_clicked)
+        self.mqtt_connection.clicked.connect(self.connection_button_clicked)
         self.mqtt_connection.setIcon(self.icon_connection)
         self.mqtt_connection.setFixedSize(QSize(100,50))
         # Write to Ntag
@@ -157,7 +157,7 @@ class NFC_Bobine(QMainWindow):
     def sub_button_was_clicked(self) :
         self.client.publish("rfid", "write")
         
-    def the_button_was_clicked(self) :
+    def connection_button_clicked(self) :
         self.mqtt_read.setEnabled(True)
         self.mqtt_write.setEnabled(True)
         self.mqtt_connection.setEnabled(False)
@@ -238,6 +238,8 @@ class NFC_Bobine(QMainWindow):
         print(info)
         self.slicer_label.setText("Slicer :" + slicer)
         nfc_bobine_lib.thumbarnail_large(file_path)
+        nfc_bobine_lib.thumbarnail_small(file_path)
+        self.gcode_preview_small.setPixmap(QPixmap("small_preview.png"))
         self.preview_button.setEnabled(True)
         print("Sono tornato")
 
