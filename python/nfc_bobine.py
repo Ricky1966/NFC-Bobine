@@ -223,19 +223,21 @@ class NFC_Bobine(QMainWindow):
             "",
             "GCode Files (*.gcode)", #;; PNG Files (*.png)",
         )
-        global file_choiced
+        global file_path
         global slicer
-        global list
-        file_choiced = fname[0]
-        self.gcodefilename_label.setText("GCode file name : " + file_choiced)
-        file1 = open(fname[0], "r")
-        lines = file1.readlines()
-        slicer = nfc_bobine_lib.which_slicer(file_choiced)
+        global info
+        
+        file_path = fname[0]     
+        self.gcodefilename_label.setText("GCode path: " + file_path)
+        file_gcode = open(file_path, "r")
+        lines = file_gcode.readlines()
+
+        slicer = nfc_bobine_lib.which_slicer(lines)
         print("Slicer : " + slicer)
-        ista = nfc_bobine_lib.extacting_data(file_choiced)
-        print(ista)
+        info = nfc_bobine_lib.extracting_data(lines)
+        print(info)
         self.slicer_label.setText("Slicer :" + slicer)
-        nfc_bobine_lib.thumbarnail_large(file_choiced)
+        nfc_bobine_lib.thumbarnail_large(file_path)
         self.preview_button.setEnabled(True)
         print("Sono tornato")
 
