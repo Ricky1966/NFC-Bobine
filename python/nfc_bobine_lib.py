@@ -101,7 +101,7 @@ def thumbarnail_small(file_choiced):
             if read_line == True :
                 dec_tmp = line.replace("; ", "")
                 img_file_choiced.write(dec_tmp)
-                print(dec_tmp)
+                #print(dec_tmp)
     img_file_choiced.close()
     file = open('temp1.txt', 'rb')
     encoded_data = file.read()
@@ -113,7 +113,6 @@ def thumbarnail_small(file_choiced):
     img_file.close()
     os.remove('temp1.txt')
     return
-    return
 
 def thumbarnail_large(file_choiced):
     print(file_choiced)
@@ -124,11 +123,6 @@ def thumbarnail_large(file_choiced):
     read_line = False
     img_file_choiced = open('temp.txt', 'w')
     count = 0
-    '''
-    while True :
-        if count >= x :
-            break
-    '''
     for line in lines :
         if (line.find("begin 400x300")>0 ) : # 21284 is numbers of chars per image 400x300 
             print("thumbnail begin 400x300 21284")
@@ -144,7 +138,7 @@ def thumbarnail_large(file_choiced):
             if read_line == True :
                 dec_tmp = line.replace("; ", "")
                 img_file_choiced.write(dec_tmp)
-                print(dec_tmp)
+                #print(dec_tmp)
     img_file_choiced.close()
     file = open('temp.txt', 'rb')
     encoded_data = file.read()
