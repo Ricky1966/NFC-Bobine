@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: iso-8859-15 -*-
 
 """
 by Riccardo BRAMATI Piedmont/Veneto World
