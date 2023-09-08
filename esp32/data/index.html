@@ -16,15 +16,28 @@
         <div class="card">
           <p class="card-title"><i class="fas fa-tag"></i> NFC-Bobine features </p>
           <p>
-            <a href="on"><button class="button-on" allign ="center">READ</button></a>
-            <a href="off"><button class="button-off" allign = "center">WRITE</button></a>
+            <a href="read"><button class="button-off" allign ="center">READ</button></a>
+            <a href="write"><button class="button-off" allign = "center">WRITE</button></a>
+            <br><br>
+            <a href="format"><button class="button-off" allign ="center">FORMAT</button></a>
+            <a href="erase"><button class="button-off"allign ="center">ERASE</button></a>
+            <a href="clear"><button class="button-off"allign ="center">CLEAR</button></a>
           </p>
           <br>
-          <p>
-            <a href="format"><button class="button-on" allign ="center">FORMAT</button></a>
-            <a href="erase"><button class="button-off"allign ="center">ERASE</button></a>
-          </p>
-          <p class="state">State: %STATE%</p>
+          <p class="state">Action: %STATE%</p>
+      </div>
+      <div class="card">
+        <p class="card-title"><i class="fas fa-tag"></i> NFC-Bobine DATA </p>
+        <p class="state">Sensor n.: %SEN%</p>
+        <p class="state">UID : %UID%</p>
+        <p class="state">Material: %MAT%</p>
+        <p class="state">Color: %COL%</p>
+        <p class="state">Lenght: %LEN%</p>
+        <p class="state">Weith: %WEI%</p>
+        <p class="state">T Bed: %TBED%</p>
+        <p class="state">T Extrude: %TEXT%</p>
+        <p class="state">T First Layer Bed: %TFLB%</p>
+        <p class="state">T First Layer Extrude: %TFLE%</p>
       </div>
     </div>
     <div class="content">
