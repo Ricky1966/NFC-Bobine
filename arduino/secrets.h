@@ -1,7 +1,7 @@
 //This is a web pages module
 
-#ifndef _SECTRETS_H
-#define _SECTRETS_H
+#ifndef _SECRETS_H
+#define _SECRETS_H
 
 const char* host = "hostname";
 const char* ssid = "your ssid";
